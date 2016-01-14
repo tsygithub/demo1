@@ -5,10 +5,8 @@ define(
 		'appmin',
 		'app/getdomain_r'
 	],
-	function ($, bootstrap, appmin, Domain) {
-		
-	Domain.getDomain();
-	
+	function ($, bootstrap, appmin, Domain) {		
+	Domain.getDomain();	
 	$("#select").click(function () {
 		Domain.reDraw();
 		$('#select').parent().find('input').val("");
@@ -16,7 +14,6 @@ define(
 	$(document.body).on('click', '.remove', function () {
 		$(this).parent().remove();
 	});
-
 	$("#tagbutton").click(function () {
 		if ($('input[name="chkItem"]:checked').length > 0 && $("#maketag:input").val()) {
 			$('input[name="chkItem"]:checked').each(function () {
@@ -29,7 +26,6 @@ define(
 			$('#myModal').modal();
 		}
 	});
-
 	$("#checkAll").prop("checked", false);
 	$("#checkAll").click(function () {
 		// $('input[name="chkItem"]').attr("checked",this.checked);
@@ -39,16 +35,14 @@ define(
 			$('input[name="chkItem"]').removeAttr("checked");
 		}
 	});
-	/*
-	var $chkItem = $("input[name='chkItem']");
-	$(document.body).on('click',$chkItem ,function(){
-	if($chkItem.length == $("input[name='chkItem']:checked").length){
-	$("#checkAll").prop("checked", true);
-	}else{
-	$("#checkAll").removeAttr("checked");
-	}
+	//var $chkItem = $("input[name='chkItem']");
+	//console.log($chkItem);
+	$(document.body).on('click',$("input[name='chkItem']"),function(){
+		if($("input[name='chkItem']").length == $("input[name='chkItem']:checked").length){
+			$("#checkAll").prop("checked", true);
+		}else
+		{
+			$("#checkAll").removeAttr("checked");
+		}
 	});
-	 */
-	$("[data-toggle='popover']").popover();
-
 })
